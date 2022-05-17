@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+        let uploaData = [
+    {"name":"Ramesh T", "class":"10th", "section":"A", "age": 16, "attendance":true},
+    {"name":"Jimmy", "class":"9th", "section":"c", "age": 14, "attendance":false},
+    {"name":"Rose", "class":"10th", "section":"A", "age": 16, "attendance":true},
+    {"name":"Karthik Sing", "class":"10th", "section":"C", "age": 16, "attendance":true},
+    {"name":"Dinesh I", "class":"10th", "section":"A", "age": 17, "attendance":false},
+    {"name":"Ramesh T", "class":"10th", "section":"A", "age": 16, "attendance":true},
+    {"name":"Ramesh K", "class":"10th", "section":"A", "age": 15, "attendance":false},
+    {"name":"Jimmy", "class":"9th", "section":"c", "age": 14, "attendance":false},
+    {"name":"Rose", "class":"10th", "section":"A", "age": 16, "attendance":true},
+    {"name":" ", "class": null, "section":" ", "age": null, "attendance":true},
+    {"name":" ", "class":"", "section":" ", "age": undefined, "attendance":true}
+
+]
+console.log(" !!!!!!!!!!!!!!!!!!!!!!!!!! Original values  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+console.log("original data",uploaData)
+console.log("original data length ---- ",uploaData.length)
+
+//jsonData 
+let jsonData = uploaData.map(JSON.stringify)
+//console.log("json",jsonData)
+
+
+for (const fill of jsonData) {
+   // console.log("fill", fill)
+    if(fill.includes(Boolean))
+    console.log("filter", fill)
+}
+
+
+//correct data
+console.log("!!!!!!!!!!!!!!!!!!!!!!!!!! correct data !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+let uniquEle = new Set(jsonData)
+let covArray = Array.from(uniquEle).map(JSON.parse)
+console.log("convertArray", covArray)
+console.log("Converted data length ---- ",covArray.length)
+
+//duplicate values 
+console.log(" !!!!!!!!!!!!!!!!!!!!!!!!!! duplicate values  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+// const duplicates = jsonData.filter((item, index) => index !== jsonData.indexOf(item));
+// const convDuplicate = Array.from(duplicates).map(JSON.parse)
+// console.log("duplicate value", convDuplicate)
+// console.log("duplicate value length ---- ", convDuplicate.length)
+
+
+const duplicate =jsonData.filter(item =>{
+    if(uniquEle.has(item)) uniquEle.delete(item)
+    else return item
+})
+const convDuplicate = Array.from(duplicate).map(JSON.parse)
+console.log("duplicate value", convDuplicate )
+
+
+
+//error data
+console.log(" !!!!!!!!!!!!!!!!!!!!!!!!!! error values  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+
+
+
+
+
+
+
+console.log(" !!!!!!!!!!!!!!!!!!!!!!!!!! mismatch values  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
