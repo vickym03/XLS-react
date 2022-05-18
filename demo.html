@@ -16,13 +16,19 @@
     background-color:rgb(248, 248, 197);
     }
 
-    hr{
-        border: 2px solid rgb(7, 200, 7);
-  border-radius: 2px;
+    #hr{
+        border: 3px solid rgba(0, 0, 0, 0.912);
+        margin: -0.2px;
+        margin-top: 30px;
     }
-    #hr1{
+   
+    #headerhr{
+        /* border-color: red; */
         border: 2px solid black;
-  border-radius: 2px;
+    }
+
+    #false{
+        background-color: rgb(232, 144, 144);
     }
 </style>
 </head>
@@ -34,36 +40,154 @@
 <div class="container  align-content-center " style="margin-left:125px">
     <div class="col-lg-12 text-center  mt-3" >
         <div class="row">
-            <div class="col-lg-2  m-1"style="background-color: lightblue;  " >
-                <h5 class="m-1 mt-2">DATA UPLOADED</h5> <hr id="hr1"/>
+            <div class="col-lg-3 "style="background-color: lightblue; " >
+                <h5 class="m-2" >DATA UPLOADED</h5> <hr id="headerhr"/>
                 <h3>NO: 60</h3>
             </div>
-            <div class="col-lg-2 m-1" style="background-color:rgb(179, 239, 90) ; ;">
-                <h5 class="m-2"> CORRECT DATA</h5>  <hr id="hr1"/>
+            <div class="col-lg-3 ms-5" style="background-color: lightseagreen ; ;">
+                <h5 class="m-2"> CORRECT DATA</h5>  <hr id="headerhr"/>
                 <h3>NO: 36</h3>
             </div>
-            <div class="col-lg-2 m-1" style="background-color:rgb(225, 92, 92);  ">
-                <h5 class="m-2"> ERROR DATA</h5>  <hr id="hr1"/>
+            <div class="col-lg-3 ms-5" style="background-color:rgb(225, 92, 92);  ">
+                <h5 class="m-2"> ERROR DATA</h5>  <hr id="headerhr"/>
                 <h3>NO: 13</h3>
             </div>
-            <div class="col-lg-2  m-1" style="background-color:lightseagreen; " >
-                <h5 class="m-2"> WHITE SPACE</h5>  <hr id="hr1"/>
+            <!-- <div class="col-lg-2  m-1" style="background-color:rgb(179, 239, 90); " >
+                <h5 class="m-2"> WHITE SPACE</h5>  <hr id="headerhr"/>
                 <h3>NO: 4</h3>
             </div>
             <div class="col-lg-2  m-1" style="background-color: lightslategrey " >
-                <h5 class="m-1 mt-2"> MISMATCH DATA</h5>  <hr id="hr1"/>
+                <h5 class="m-1 mt-2"> MISMATCH DATA</h5>  <hr id="headerhr"/>
                 <h3>NO: 7</h3>
-              
-            </div>
+            </div> -->
             
         </div>
-        
+
     </div>
    
 </div>
 
+        <!-- table -->
+        <div class="container mt-3"  style="margin-left: 100px;   ">
+           <div class="col-lg-10 m-3" > 
+            <table class="table table-striped " >
+                <thead>
+                    <hr id="hr"/>
+                  <tr style="background-color: rgb(226, 240, 253)">
+                    <th scope="col">Sl No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Attendance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th >1</th>
+                    <td>Sagar T</td>
+                    <td>10<sup style="font-size: 13px">th</sup></td>
+                    <td>B </td>
+                    <td>15<i>yrs</i></td>
+                    <td>True</td>
+                  </tr>
+                  <tr>
+                    <th >2</th>
+                    <td>Jacob</td>
+                    <td>10<sup style="font-size: 13px">th</sup></td>
+                    <td>A</td>
+                    <td>17<i>yrs</i></td>
+                    <td>True</td>
+                  </tr>
+                  <tr>
+                    <th >3</th>
+                    <td>Larry Otto</td>
+                    <td>9<sup style="font-size: 13px">th</sup></td>
+                    <td>B</td>
+                    <td>16<i>yrs</i></td>
+                    <td id="false">False</td>
+                  </tr>
+                  <tr>
+                    <th >4</th>
+                    <td>Sagar T</td>
+                    <td>10<sup style="font-size: 13px">th</sup></td>
+                    <td>B </td>
+                    <td>15<i>yrs</i></td>
+                    <td>True</td>
+                  </tr>
+                  <tr>
+                    <th >5</th>
+                    <td>Jacob</td>
+                    <td>10<sup style="font-size: 13px">th</sup></td>
+                    <td>A</td>
+                    <td>17<i>yrs</i></td>
+                    <td>True</td>
+                  </tr>
+                  <tr>
+                    <tr>
+                        <th >6</th>
+                        <td>Sagar T</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td>B </td>
+                        <td>15<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      <tr>
+                        <th >7</th>
+                        <td>Jacob</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td>A</td>
+                        <td>17<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      <tr>
+                        <th >8</th>
+                        <td>Sagar T</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td>B </td>
+                        <td>15<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      <tr>
+                        <th >9</th>
+                        <td>Jacob</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td>A</td>
+                        <td>17<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      <tr>
+                        <th >10</th>
+                        <td>Larry Otto</td>
+                        <td>9<sup style="font-size: 13px">th</sup></td>
+                        <td>B</td>
+                        <td>16<i>yrs</i></td>
+                        <td id="false">False</td>
+                      </tr>
+                      <tr>
+                        <th >11</th>
+                        <td>Sagar T</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td >B </td>
+                        <td>15<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      <tr>
+                        <th >12</th>
+                        <td>Jacob</td>
+                        <td>10<sup style="font-size: 13px">th</sup></td>
+                        <td>A</td>
+                        <td>17<i>yrs</i></td>
+                        <td>True</td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+           </div>
+       
+           </div>
 <!-- body -->
-<div class="container col-lg-12 mt-5" style="width: 100%">
+<!-- <div class="container col-lg-12 mt-5" style="width: 100%">
     <div class="row">
         <div class="col-lg-2 m-3 " id="grid" >
        <div>
@@ -174,10 +298,7 @@
                </div>
         </div>
     </div>
-</div>
-
-
-
+</div> -->
 
 
 
@@ -225,6 +346,7 @@ for (const fill of jsonData) {
    // console.log("fill", fill)
     if(fill.includes(Boolean))
     console.log("filter", fill)
+    
 }
 
 
@@ -249,7 +371,6 @@ const duplicate =jsonData.filter(item =>{
 })
 const convDuplicate = Array.from(duplicate).map(JSON.parse)
 console.log("duplicate value", convDuplicate )
-
 
 
 //error data
