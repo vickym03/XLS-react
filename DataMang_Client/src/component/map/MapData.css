@@ -1,0 +1,42 @@
+/* .body{
+    margin: 0vh;
+    padding: 0vh;
+} */
+/* h3{
+    margin-right:800px;
+} */
+
+#container{
+    margin-left:125px
+}
+
+#upload{
+    background-color: lightblue;
+}
+
+#correct{
+    background-color: lightseagreen ;
+    
+}
+
+#error{
+    background-color:rgb(225, 92, 92)
+}
+
+#headerhr{
+    border: 2px solid black;
+    
+}
+
+.headertitle{
+    margin-top: 2vh;
+}
+
+#back{
+    margin: 1vh;
+    margin-left: 1000px;
+}
+
+#head{
+    margin-top:20px ;
+}

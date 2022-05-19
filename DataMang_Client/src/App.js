@@ -2,7 +2,7 @@ import './App.css';
 import MapData from './component/map/MapData';
 import Upload from './component/uploadData/Upload';
 // import {BrowserRouter, Route, Routes,} from "react-router-dom"
-// import MapData from "./component/map/MapData"
+
 
 function App() {
    let click=true
@@ -14,10 +14,11 @@ function App() {
                     <Route path="/next" element={<MapData/>}/>
                 </Routes>
         </BrowserRouter> */}
+<Upload/>
 
    {/* {   click=true? <Upload/> : <MapData/>} */}
       
-       {   click=false?  <MapData/> : <Upload/>}
+       {/* {   click=false?  <MapData/> : <Upload/>} */}
     
   
     </div>
