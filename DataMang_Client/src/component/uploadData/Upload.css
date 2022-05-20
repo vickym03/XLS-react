@@ -1,17 +1,30 @@
 #body{
   margin: 0px;
   padding: 0px;
+ 
 }
 
 #card{
-    margin-top: 10vh;
+    margin-top: 25vh;
     margin-left: 20vh;
     
        padding: 4vh;
     /*  */
     /* background-color: aliceblue;
-    border: 2px solid black; */
-      background-color: rgba(217, 214, 214, 0.421) ;
-    border: 1vh solid    rgba(26, 145, 241, 0.459);
+    border: 2px solid black;    rgba(26, 145, 241, 0.459)*/
+      background-color: rgba(180, 177, 177, 0.43) ;
+    border: 6px solid    rgba(30, 155, 218, 0.777);
+}
+
+
+#errornoti{
+
+margin-left: -400;
+font-size: 18;
+text-align: left;
+
+  font-family: Georgia, serif;
+  
+
 }
 

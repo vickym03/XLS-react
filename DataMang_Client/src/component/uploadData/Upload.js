@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Upload.css";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import Button from "@mui/material/Button";
@@ -7,6 +7,7 @@ import SendIcon from "@mui/icons-material/Send";
 import MapData from "../map/MapData";
 
 import * as XLSX from "xlsx";
+import ValidUpdata from "../validupdata/ValidUpdata";
 
 function Upload() {
   const [excelFile, setExcelFile] = useState();
@@ -20,7 +21,7 @@ function Upload() {
 
   const Delete = () => {
     // alert("I'm an delete");
-    setExcelFile(null);
+    // setExcelFile(null);
   };
 
   const Save = () => {
@@ -30,9 +31,20 @@ function Upload() {
     }
   };
 
-  const handleCancel = () => {
+  const handleBack = () => {
+    //  {excelData.length >1?setExcelData(null):setExcelData(0) }
+    // setExcelData(0)
+    // if (excelData.length < 0) {
+    //   setShowdata(false);
+
+    //   setShowupload(true)
+    // }
+
     setShowdata(false);
+
     setShowupload(true);
+
+    //  console.log("data", excelData.length)
   };
 
   const acceptOnly = ["xlsx", "xlx"];
@@ -55,7 +67,7 @@ function Upload() {
           setExcelFile(e.target.result);
         };
       } else {
-        setExcelFileError("Please select only excel file types");
+        setExcelFileError("Please select only excel file types !");
         setExcelFile(null);
       }
     } else {
@@ -80,8 +92,7 @@ function Upload() {
   };
 
   return (
-    <>
-      {" "}
+    <div id="mainbody">
       {showupload && (
         <>
           <div id="body">
@@ -111,10 +122,7 @@ function Upload() {
                       required
                     />
                     {excelFileError && (
-                      <div
-                        className="text-danger"
-                        style={{ marginTop: 5 + "px" }}
-                      >
+                      <div className=" text-danger mt-1" id="errornoti">
                         {excelFileError}
                       </div>
                     )}
@@ -144,8 +152,8 @@ function Upload() {
           </div>
         </>
       )}
-      {showdata && <MapData data={excelData} cancel={handleCancel} />}
-    </>
+      {showdata && <MapData data={excelData} cancel={handleBack} />}
+    </div>
   );
 }
 
