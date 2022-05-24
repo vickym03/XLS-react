@@ -8,8 +8,6 @@ import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import ValidErr from "../validerr/ValidErr";
 import Success from "../success/Success";
-import { ContactSupportOutlined } from "@mui/icons-material";
-import { style } from "@mui/system";
 
 function MapData({ data, cancel, setShowdata }) {
   // console.log("dataprops", data);
@@ -28,10 +26,17 @@ function MapData({ data, cancel, setShowdata }) {
   const [success, setSuccess] = useState(false);
 
   //coreect data
-const[correctData, setCorrectData]= useState([])
+  const [correctData, setCorrectData] = useState([]);
 
   //errordatat
-const[errorData, setErrorData] = useState([]) 
+  const [errorData, setErrorData] = useState([]);
+
+  //ERROR DUPLICATE
+  const [errorDuplicate, setErrorDuplicate] = useState([]);
+
+  //dummy error
+
+  const [errLen, SeterrLen] = useState([]);
 
   //on view uploaded data
   const handleUploadView = () => {
@@ -69,15 +74,6 @@ const[errorData, setErrorData] = useState([])
     setErrodataView(false);
   };
 
-  //time out
-  //  let backHome = setTimeout(()=>{
-  //    setSuccess(false)
-  //    setShowdata(true)
-
-  // console.log("bbbck")
-
-  //  }, 30)
-
   //success
   const handleSuccess = () => {
     setSuccess(true);
@@ -85,10 +81,6 @@ const[errorData, setErrorData] = useState([])
   };
 
   //back home
-  const handleBackHome = () => {
-    setSuccess(false);
-    setShowdata(true);
-  };
 
   // const dSchema = yup.object().shape({
 
@@ -110,45 +102,78 @@ const[errorData, setErrorData] = useState([])
 
   // validSchema.validateSync(data)
 
-//--------------
+  //--------------
+
+  //:::::::::::uique value
+
+  useEffect(() => {
 
 
 
-//:::::::::::uique value
+    //correct data
+    const valData = data.filter((val) => {
+      //console.log("valid",typeof(val.Name ))
+      return (
+        typeof val.Name === "string" &&
+        typeof val.Class === "number" &&
+        typeof val.Age === "number" &&
+        typeof val.Attendance === "boolean"
+      );
+    });
+    console.log(" valData", valData);
+const vall = [...new Set(valData.map((a) => JSON.stringify(a)))].map((a) =>
+JSON.parse(a)
+);
+console.log(" valll", vall);
+    setCorrectData(vall )
 
-useEffect(()=>{
 
-  //unique
-  const uniquEle = [...new Set(data.map(a => JSON.stringify(a)))].map(a => JSON.parse(a))
+       //json
+       const dataStr =  valData.map(JSON.stringify);
+    //unique
+    const uniquEle = [...new Set(data.map((a) => JSON.stringify(a)))].map((a) =>
+      JSON.parse(a)
+    );
 
-console.log(uniquEle)
+    console.log("unique", uniquEle);
 
-
-//json
-const dataStr = data.map(JSON.stringify)
-
-//error
-const found = uniquEle.filter((val)=>{
-  return val.Name === "null" && "undefined" && " " && "true" && "false" ||
-   val.Class === "null" && "undefined" && " " && "true" && "false"  ||
-   val.Age === "null" && "undefined" && " " && "true" && "false"  ||
-   val.Attendance === "null" && "undefined" && " " && "true" && "false" 
-})
-
-console.log("spacefounnd",found)
-//duplicate val
-const duplicates = dataStr.filter((item, index) => index !== dataStr.indexOf(item));
-const convDuplicateErr = Array.from(duplicates).map(JSON.parse)
-console.log("dupicate", duplicates)
-
-const errJoin = found.concat( convDuplicateErr)
-console.log("total err", errJoin)
-setErrorData(errJoin)
-},[])
+ 
+    
 
 
 
-//--------------
+    const found = data.filter((val) => {
+      return (
+        (val.Name === "null" && "undefined" &&  "true" && "false") ||
+        (val.Class === "null" && "undefined" && "true" && "false") ||
+        (val.Age === "null" && "undefined" && "true" && "false") ||
+        (val.Attendance === "null" && "undefined" && "true" && "false")
+      );
+    });
+    console.log("spacefounnd", found);
+    setErrorData(found);
+    //duplicate val
+
+
+    const duplicates = dataStr.filter(
+      (item, index) => index !== dataStr.indexOf(item)
+    );
+    const convDuplicateErr = Array.from(duplicates).map(JSON.parse);
+    setErrorDuplicate(convDuplicateErr);
+    console.log("dupicate", errorDuplicate);
+
+    const errJoin = found.concat(convDuplicateErr);
+    SeterrLen(errJoin);
+    console.log("total err", errLen.length);
+
+  }, []);
+
+  const handleCancel=()=>{
+    cancel()
+    setSuccess(false)
+  }
+
+  //--------------
   return (
     <div>
       {/* start map data condi */}
@@ -167,8 +192,8 @@ setErrorData(errJoin)
 
               <h1>REPORT ON DATA</h1>
               <div className="row" id="container">
-                <div className="col-lg-3 m-2" id="upload">
-                  <h5 className="headertitle">DATA UPLOADED</h5>
+                <div className="col-lg-3  m-2 " id="upload">
+                  <h5 className="headertitle">TOTAL REPORTS</h5>
                   <hr id="headerhr" />
                   <h4>NO : {data.length}</h4>
                   {/* <hr id="headerhr" /> */}
@@ -176,20 +201,20 @@ setErrorData(errJoin)
                     <StorageRoundedIcon />
                   </button>
                 </div>
-                <div className="col-lg-3 m-2" id="correct">
-                  <h5 className="headertitle"> CORRECT DATA</h5>
+                <div className="col-lg-3   m-2  " id="correct">
+                  <h5 className="headertitle"> VALID REPORTS</h5>
                   <hr id="headerhr" />
                   <h4>NO : {correctData.length}</h4>
                   <button className="btn  mb-2   " onClick={handleCorrectView}>
                     <CheckCircleOutlinedIcon />
                   </button>
                 </div>
-                <div className="col-lg-3 m-2" id="error">
-                  <h5 className="headertitle"> ERROR DATA</h5>{" "}
+                <div className="col-lg-3  m-2  " id="error">
+                  <h5 className="headertitle">INVALID REPORTS</h5>{" "}
                   <hr id="headerhr" />
-                  <h4>NO : {errorData.length}</h4>
+                  <h4>NO : {errLen.length} </h4>
                   <button
-                    className="btn  text-dark mb-2  "
+                    className="btn  text-dark mb-2  ms-2 "
                     onClick={handleErrorView}
                   >
                     <CancelOutlinedIcon />
@@ -205,29 +230,27 @@ setErrorData(errJoin)
 
           <div className="container mt-3" id="container">
             <div className="col-lg-10  mt-4">
+              <hr id="hr" />
               <table className="table table-striped ">
                 <thead>
                   <tr>
                     <th scope="col">Sl No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Class</th>
-             
+
                     <th scope="col">Age</th>
                     <th scope="col">Attendance</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((val, ind) => {
+                  {correctData.map((val, ind) => {
                     return (
                       <tr key={ind}>
                         <td> {ind + 1} </td>
                         <td> {val.Name}</td>
-                        <td>
-                          {val.Class}
-                          <sup>th</sup>
-                        </td>
-                        <td> {val.Age}</td> 
-                         <td> {val.Attendance }</td>
+                        <td>{val.Class}</td>
+                        <td> {val.Age}</td>
+                        <td> {val.Attendance}</td>
                       </tr>
                     );
                   })}
@@ -247,11 +270,19 @@ setErrorData(errJoin)
 
       {upview && <ValidUpdata back={handleBackValidUpdata} data={data} />}
 
-      {correctDataView && <ValidCorr back={handleBackCorrectdata} />}
+      {correctDataView && (
+        <ValidCorr back={handleBackCorrectdata} correctData={correctData} />
+      )}
 
-      {errordataView && <ValidErr back={handleBackErrorData} errorData={errorData} />}
+      {errordataView && (
+        <ValidErr
+          back={handleBackErrorData}
+          errorData={errorData}
+          errorDuplicate={errorDuplicate}
+        />
+      )}
 
-      {success && <Success handleBackHome={handleBackHome} />}
+      {success && <Success cancel={handleCancel} />}
     </div>
   );
 }

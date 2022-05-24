@@ -4,7 +4,7 @@
 } */
 
 #container{
-    margin-left: 17vh;
+margin-left: 8rem;
     /* background-color: beige; */
     margin-top: 2vh;
 }
@@ -43,3 +43,10 @@
 #head{
     margin-top:20px ;
 }
+
+#hr {
+    border: 2px solid saddlebrown;
+    margin: -0.2px;
+    margin-top: 25px;
+    border-radius: 0rem;
+  }

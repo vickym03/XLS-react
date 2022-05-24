@@ -1,12 +1,22 @@
 import React from "react";
 import "./Success.css";
+import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 
-function Success({ handleBackHome }) {
-  console.log("succes props", handleBackHome);
+function Success({ cancel }) {
+
+  const handleBackHome=()=>{
+    
+    cancel()
+  }
+  
   return (
     <div className="">
-      Success
-      <button onClick={handleBackHome}> bckk</button>
+     
+      
+      <button className="btn btn-info text-white  " id="back"  onClick={handleBackHome}>
+          <ArrowBackIosOutlinedIcon /> Back To Home
+        </button>
+
       <div id="bodySvg">
       <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" id="des">
         <g

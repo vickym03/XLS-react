@@ -32,10 +32,10 @@ function Upload() {
   };
 
   const handleBack = () => {
- 
+    setExcelData(undefined)
     setShowdata(false);
-
     setShowupload(true);
+  
 
     //  console.log("data", excelData.length)
   };
@@ -93,10 +93,12 @@ function Upload() {
               <div className="col-lg-10 ">
                 <div id="card">
                   <h2 className="mt-2">Select the file from here</h2>
-                  <CloudUploadOutlinedIcon
+                  {/* <CloudUploadOutlinedIcon
                     color="primary"
                     style={{ fontSize: 100 }}
-                  />
+                  /> */}
+                  <img src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
+                  height={100} width={100} />
                   <br />
 
                   <form
@@ -146,7 +148,7 @@ function Upload() {
           </div>
         </>
       )}
-      {showdata && <MapData data={excelData} cancel={handleBack}   setShowdata={ setShowdata} />}
+      {showdata && <MapData data={excelData} cancel={handleBack}     />}
     </div>
   );
 }
