@@ -2,6 +2,7 @@ import React from 'react'
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 
 function ValidCorr({back}) {
+  
   return (
     <div>
       <div className='col-lg-12 mt-3'>

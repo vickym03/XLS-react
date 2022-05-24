@@ -19,11 +19,11 @@ function Upload() {
   const [showdata, setShowdata] = useState(false);
   const [showupload, setShowupload] = useState(true);
 
-  const Delete = () => {
+  const Delete = (e) => {
     // alert("I'm an delete");
-    // setExcelFile(null);
-  };
+  
 
+  }
   const Save = () => {
     if (excelData !== undefined && excelData.length > 0) {
       setShowdata(true);
@@ -32,14 +32,7 @@ function Upload() {
   };
 
   const handleBack = () => {
-    //  {excelData.length >1?setExcelData(null):setExcelData(0) }
-    // setExcelData(0)
-    // if (excelData.length < 0) {
-    //   setShowdata(false);
-
-    //   setShowupload(true)
-    // }
-
+ 
     setShowdata(false);
 
     setShowupload(true);
@@ -131,7 +124,7 @@ function Upload() {
                       <Button
                         variant="outlined"
                         startIcon={<CancelOutlinedIcon />}
-                        style={{ marginRight: 50 }}
+                        style={{ margin: 10 }}
                         onClick={Delete}
                       >
                         Cancel
@@ -144,6 +137,7 @@ function Upload() {
                       >
                         Next
                       </Button>
+                      
                     </div>
                   </form>
                 </div>
@@ -152,7 +146,7 @@ function Upload() {
           </div>
         </>
       )}
-      {showdata && <MapData data={excelData} cancel={handleBack} />}
+      {showdata && <MapData data={excelData} cancel={handleBack}   setShowdata={ setShowdata} />}
     </div>
   );
 }
