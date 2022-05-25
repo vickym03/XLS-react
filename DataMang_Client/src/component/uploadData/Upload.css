@@ -1,30 +1,24 @@
-#body{
+#body {
   margin: 0px;
   padding: 0px;
- 
 }
 
-#card{
-    margin-top: 25vh;
-    margin-left: 20vh;
-    
-       padding: 4vh;
-    /*  */
-    /* background-color: aliceblue;
+#card {
+  margin-top: 25vh;
+  margin-left: 20vh;
+
+  padding: 4vh;
+  /*  */
+  /* background-color: aliceblue;
     border: 2px solid black;    rgba(26, 145, 241, 0.459)*/
-      background-color: rgba(185, 185, 185, 0.43) ;
-    border: 6px solid    rgba(30, 155, 218, 0.777);
+  background-color: rgba(185, 185, 185, 0.43);
+  border: 6px solid rgba(30, 155, 218, 0.777);
 }
 
-
-#errornoti{
-
-margin-left: -400;
-font-size: 18;
-text-align: left;
+#errornoti {
+  margin-left: -400;
+  font-size: 18;
+  text-align: left;
 
   font-family: Georgia, serif;
-  
-
 }
-

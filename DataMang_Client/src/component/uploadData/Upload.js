@@ -19,23 +19,24 @@ function Upload() {
   const [showdata, setShowdata] = useState(false);
   const [showupload, setShowupload] = useState(true);
 
+  //ALERT DATA
+  const[alertEmpty, setAlertEmpty]= useState("")
+
   const Delete = (e) => {
     // alert("I'm an delete");
-  
-
-  }
+  };
   const Save = () => {
     if (excelData !== undefined && excelData.length > 0) {
       setShowdata(true);
       setShowupload(false);
+     
     }
   };
 
   const handleBack = () => {
-    setExcelData(undefined)
+    setExcelData(undefined);
     setShowdata(false);
     setShowupload(true);
-  
 
     //  console.log("data", excelData.length)
   };
@@ -71,17 +72,22 @@ function Upload() {
   // submit function
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    Save();
     if (excelFile !== null) {
       const workbook = XLSX.read(excelFile, { type: "buffer" });
       const worksheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[worksheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
+      console.log({alertEmpty})
+      setAlertEmpty("Error in file uploaded")
       console.log("data", data);
       setExcelData(data);
       console.log("dataLength : ", data.length);
     } else {
       setExcelData(null);
     }
+    //nextpage
   };
 
   return (
@@ -97,8 +103,11 @@ function Upload() {
                     color="primary"
                     style={{ fontSize: 100 }}
                   /> */}
-                  <img src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
-                  height={100} width={100} />
+                  <img
+                    src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
+                    height={100}
+                    width={100}
+                  />
                   <br />
 
                   <form
@@ -118,9 +127,13 @@ function Upload() {
                     />
                     {excelFileError && (
                       <div className=" text-danger mt-1" id="errornoti">
-                        {excelFileError}
+                        {excelFileError} 
                       </div>
                     )}
+                     <div className=" text-danger mt-1" id="errornoti">
+                     {alertEmpty}
+                      </div>
+                   
                     <br />
                     <div direction="row" spacing={2}>
                       <Button
@@ -135,11 +148,10 @@ function Upload() {
                         type="submit"
                         variant="contained"
                         endIcon={<SendIcon />}
-                        onClick={Save}
+                        //onClick={Save}
                       >
                         Next
                       </Button>
-                      
                     </div>
                   </form>
                 </div>
@@ -148,7 +160,7 @@ function Upload() {
           </div>
         </>
       )}
-      {showdata && <MapData data={excelData} cancel={handleBack}     />}
+      {showdata && <MapData data={excelData} cancel={handleBack} />}
     </div>
   );
 }
