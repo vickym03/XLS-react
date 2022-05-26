@@ -9,15 +9,20 @@
 }
 
 #upload {
-  background-color: lightblue;
+  background-color:  lightblue;
+ border: 3px solid rgb(75, 201, 244);
+ 
 }
 
 #correct {
-  background-color: lightseagreen;
+  background-color: rgba(32, 178, 171, 0.678);
+  
+  border: 3px solid rgb(11, 165, 158);
 }
 
 #error {
-  background-color: rgb(225, 92, 92);
+  background-color: rgba(231, 118, 118, 0.898);
+  border: 3px solid rgba(251, 34, 34, 0.898);
 }
 
 #headerhr {

@@ -22,9 +22,7 @@ function Upload() {
   //ALERT DATA
   const[alertEmpty, setAlertEmpty]= useState("")
 
-  const Delete = (e) => {
-    // alert("I'm an delete");
-  };
+ 
   const Save = () => {
     if (excelData !== undefined && excelData.length > 0) {
       setShowdata(true);
@@ -40,12 +38,15 @@ function Upload() {
 
     //  console.log("data", excelData.length)
   };
-
+  const Delete = (e) => {
+    alert("I'm an delete");
+  };
   const acceptOnly = ["xlsx", "xlx"];
 
   const checkName = (name) => {
-    console.log(name);
-    return acceptOnly.includes(name.split(".").pop().toLowerCase());
+      console.log(name);
+      return acceptOnly.includes(name.split(".").pop().toLowerCase());
+   
   };
 
   const handleFile = (e) => {
@@ -79,8 +80,9 @@ function Upload() {
       const worksheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[worksheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
-      console.log({alertEmpty})
-      setAlertEmpty("Error in file uploaded")
+      //console.log({alertEmpty})
+     if(data.length===0) setAlertEmpty("Error in file uploaded")
+     else setAlertEmpty(" ")
       console.log("data", data);
       setExcelData(data);
       console.log("dataLength : ", data.length);
@@ -103,18 +105,21 @@ function Upload() {
                     color="primary"
                     style={{ fontSize: 100 }}
                   /> */}
-                  <img
-                    src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
-                    height={100}
-                    width={100}
-                  />
-                  <br />
+               
+                  
 
                   <form
                     className="form-group"
                     autoComplete="off"
                     onSubmit={handleSubmit}
                   >
+                     
+                       <img
+                    src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
+                    height={100}
+                    width={100}
+                  />
+                     
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       type="file"

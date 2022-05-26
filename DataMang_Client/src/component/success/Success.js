@@ -1,20 +1,13 @@
 import React from "react";
 import "./Success.css";
-import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 
 function Success({ cancel }) {
-
-  // const handleBackHome = () => {
-  //   cancel();
-  // };
-
   setTimeout(() => {
     cancel();
   }, 4000);
 
   return (
     <div>
-     
       <div>
         <h1 id="success"> Data saved successfully !</h1>
       </div>

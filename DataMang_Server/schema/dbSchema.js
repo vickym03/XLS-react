@@ -24,4 +24,4 @@ const dbSchema = mongoose.Schema(
   }
 );
 
-modeule.exports = mongoose.model("DataMang", dbSchema);
+module.exports = mongoose.model("DataMang", dbSchema);

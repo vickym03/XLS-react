@@ -48,7 +48,7 @@ function ValidUpdata({ back, data }) {
                           <td> {val.Name}</td>
                           <td>{val.Class}</td>
                           <td> {val.Age}</td>
-                          <td> {val.Attendance ?  <p>True</p> :  <p className="" style={{margin:0, padding:0, backgroundColor:"rgb(232, 144, 144)",height:25}}>False</p>}</td>
+                          <td> {val.Attendance ?  <p>True</p> :  <p >False</p>}</td>
                         </tr>
                       );
                     })}
