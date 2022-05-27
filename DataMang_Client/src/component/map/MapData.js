@@ -8,8 +8,7 @@ import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import ValidErr from "../validerr/ValidErr";
 import Success from "../success/Success";
-import axios from "axios"
-
+import axios from "axios";
 
 function MapData({ data, cancel }) {
   // console.log("dataprops", data);
@@ -78,20 +77,16 @@ function MapData({ data, cancel }) {
 
   //success
   const handleSuccess = () => {
-    if (correctData.length >= 1) {
-      setSuccess(true);
-      setMapview(false);
-    }
+    correctData.length > 0 && correctData.map((data) => handleSaveDb(data));
+    // handleSaveDb();
+    setSuccess(true);
+    setMapview(false);
   };
 
   const handleCancel = () => {
-    handleSaveDb();
     cancel();
     setSuccess(false);
-    
   };
-
-  
 
   // const dSchema = yup.object().shape({
 
@@ -188,45 +183,45 @@ function MapData({ data, cancel }) {
     // }
     // console.log( " mainData",data)
   }, []);
-//save in database
+  //save in database
 
-const handleSaveDb = async () => {
-  console.log("corredatabck", correctData)
-  try {
-    const url = "http://localhost:8000/save";
-    // const { correctData: res } = await axios.post(url, {
-    //   Name: "",
-    //   Class:"",
-    //   Age: "",
-    //   Attendance:""
-    // });
+  const handleSaveDb = async (data) => {
+    console.log("corredatabck", data);
+    try {
+      const url = "http://localhost:8000/save";
+      // const { correctData: res } = await axios.post(url, {
+      //   Name: "",
+      //   Class:"",
+      //   Age: "",
+      //   Attendance:""
+      // });
 
-    // const body={
-    //   Name:correctData.Name,
-    //   Class:correctData.Class,
-    //   Age:correctData.Class,
-    //   Attendance:correctData.Attendance
-    // }
-    
-    const body={
-      "Name":"Sanju", "Class":10 ,"Age":16, "Attendance":true
+      // const body={
+      //   Name:correctData.Name,
+      //   Class:correctData.Class,
+      //   Age:correctData.Class,
+      //   Attendance:correctData.Attendance
+      // }
+
+      // const body={
+      //   "Name":"Sanju", "Class":10 ,"Age":16, "Attendance":true
+      // }
+      // const options={
+      //   method:"POST",
+      //   mode:"no-cors",
+      //   headers:{
+      //    'Content-Type':"application/json",
+      //    'Access-Control-Allow-Origin': true
+      //   },
+      //   body:  JSON.stringify(body)
+      // }
+      //const correctdataBck = correctData.map(JSON.stringify);
+      const res = await axios.post(url, data);
+      console.log("res.message", res);
+    } catch (error) {
+      console.log("error while sending Data", error);
     }
-    // const options={
-    //   method:"POST",
-    //   mode:"no-cors",
-    //   headers:{
-    //    'Content-Type':"application/json",
-    //    'Access-Control-Allow-Origin': true
-    //   },
-    //   body:  JSON.stringify(body)
-    // }
-const correctdataBck = correctData.map(JSON.stringify);
-const res = await axios.post(url,correctdataBck)
-   console.log("res.message",res);
-  } catch (error) {
-    console.log("error while sending Data", error);
-  }
-};
+  };
 
   //--------------
   return (
@@ -248,7 +243,7 @@ const res = await axios.post(url,correctdataBck)
               <h1>REPORT ON DATA</h1>
               <div className="row" id="container">
                 <div className="col-lg-3  m-2 " id="upload">
-                  <h5 className="headertitle">TOTAL   RECORDS</h5>
+                  <h5 className="headertitle">TOTAL RECORDS</h5>
                   <hr id="headerhr" />
                   <h4>NO : {data.length}</h4>
                   {/* <hr id="headerhr" /> */}
@@ -257,7 +252,7 @@ const res = await axios.post(url,correctdataBck)
                   </button>
                 </div>
                 <div className="col-lg-3   m-2  " id="correct">
-                  <h5 className="headertitle"> VALID   RECORDS</h5>
+                  <h5 className="headertitle"> VALID RECORDS</h5>
                   <hr id="headerhr" />
                   <h4>NO : {correctData.length}</h4>
                   <button className="btn  mb-2   " onClick={handleCorrectView}>
@@ -265,7 +260,7 @@ const res = await axios.post(url,correctdataBck)
                   </button>
                 </div>
                 <div className="col-lg-3  m-2  " id="error">
-                  <h5 className="headertitle">INVALID   RECORDS</h5>
+                  <h5 className="headertitle">INVALID RECORDS</h5>
                   <hr id="headerhr" />
                   <h4>NO : {errLen.length} </h4>
                   <button
@@ -322,15 +317,7 @@ const res = await axios.post(url,correctdataBck)
                               <td> {val.Age}</td>
                               <td>
                                 {" "}
-                                {val.Attendance ? (
-                                  <p>True</p>
-                                ) : (
-                                  <p
-                                   
-                                  >
-                                    False
-                                  </p>
-                                )}
+                                {val.Attendance ? <p>True</p> : <p>False</p>}
                               </td>
                             </tr>
                           );
