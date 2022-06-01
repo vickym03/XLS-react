@@ -77,7 +77,7 @@ function MapData({ data, cancel }) {
 
   //success
   const handleSuccess = () => {
-    correctData.length > 0 && correctData.map((data) => handleSaveDb(data));
+    correctData.length > 0 && correctData.forEach((data) => handleSaveDb(data));
     // handleSaveDb();
     setSuccess(true);
     setMapview(false);
@@ -182,7 +182,7 @@ function MapData({ data, cancel }) {
     //   }
     // }
     // console.log( " mainData",data)
-  }, []);
+  },[]);
   //save in database
 
   const handleSaveDb = async (data) => {
@@ -232,6 +232,9 @@ function MapData({ data, cancel }) {
         <>
           <div className="container  align-content-center">
             <div className="col-lg-12 text-center  mt-3">
+              
+
+              <h1>REPORT ON DATA</h1>
               <button
                 id="back"
                 onClick={cancel}
@@ -239,8 +242,6 @@ function MapData({ data, cancel }) {
               >
                 <ArrowBackIosOutlinedIcon /> Back
               </button>
-
-              <h1>REPORT ON DATA</h1>
               <div className="row" id="container">
                 <div className="col-lg-3  m-2 " id="upload">
                   <h5 className="headertitle">TOTAL RECORDS</h5>

@@ -38,8 +38,8 @@ function Upload() {
 
     //  console.log("data", excelData.length)
   };
-  const Delete = (e) => {
-    alert("I'm an delete");
+  const Delete = () => {
+   window.location.reload()
   };
   const acceptOnly = ["xlsx", "xlx"];
 
@@ -74,7 +74,7 @@ function Upload() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Save();
+ 
     if (excelFile !== null) {
       const workbook = XLSX.read(excelFile, { type: "buffer" });
       const worksheetName = workbook.SheetNames[0];
@@ -85,6 +85,7 @@ function Upload() {
      else setAlertEmpty(" ")
       console.log("data", data);
       setExcelData(data);
+      Save();
       console.log("dataLength : ", data.length);
     } else {
       setExcelData(null);
@@ -115,7 +116,7 @@ function Upload() {
                   >
                      
                        <img
-                    src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1653374500~hmac=5413e81af79764afcbeb780d7b7cb5df"
+                    src="https://cdn-icons.flaticon.com/png/512/2716/premium/2716054.png?token=exp=1654058658~hmac=c539445a4feaf8c406dcaae63bb70432"
                     height={100}
                     width={100}
                   />
