@@ -182,7 +182,7 @@ function MapData({ data, cancel }) {
     //   }
     // }
     // console.log( " mainData",data)
-  },[]);
+  }, []);
   //save in database
 
   const handleSaveDb = async (data) => {
@@ -232,8 +232,6 @@ function MapData({ data, cancel }) {
         <>
           <div className="container  align-content-center">
             <div className="col-lg-12 text-center  mt-3">
-              
-
               <h1>REPORT ON DATA</h1>
               <button
                 id="back"
@@ -317,7 +315,6 @@ function MapData({ data, cancel }) {
                               <td>{val.Class}</td>
                               <td> {val.Age}</td>
                               <td>
-                                {" "}
                                 {val.Attendance ? <p>True</p> : <p>False</p>}
                               </td>
                             </tr>
