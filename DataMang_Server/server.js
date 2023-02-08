@@ -3,7 +3,7 @@ const cors =require("cors")
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 8000;
+const PORT = 5000;
 const connectDb = require("./database/ConnectDb");
 
 const Schema = require("./schema/dbSchema");
@@ -53,5 +53,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("hello", `http://localhost:${PORT} `);
+  console.log( `Running in port http://localhost:${PORT} `);
 });
