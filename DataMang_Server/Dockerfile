@@ -15,6 +15,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+#port number to run
 EXPOSE 5000
+
 # Starting our application
 CMD npm start
