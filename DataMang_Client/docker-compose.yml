@@ -3,9 +3,9 @@ version: '3'
 services:
   backend:
     build:
-      context: ./DataMang_server
+      context: ./DataMang
       dockerfile: Dockerfile
-    image: "vickym03/upload :server"
+    image: "vickym03/upload:server"
     ports:
       - 5000:5000
     environment:
@@ -15,7 +15,7 @@ services:
 
   frontend:
     build:
-      context: ./DataMang_client
+      context: ./DataMang
       dockerfile: Dockerfile
     image: "vickym03/upload:client"
     ports:
