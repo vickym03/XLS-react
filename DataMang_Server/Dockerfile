@@ -19,5 +19,7 @@ COPY . .
 EXPOSE 5000
 
 
+
+
 # Starting our application
 CMD npm start
