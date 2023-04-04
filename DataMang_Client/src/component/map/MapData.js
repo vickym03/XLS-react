@@ -166,7 +166,8 @@ function MapData({ data, cancel }) {
     SeterrLen(errJoin);
     console.log("total err", errLen.length);
 
-    //final error
+    //final_error
+    
 
     // let mainData = valData.map(JSON.stringify);
     // let validedData = vallPure.map(JSON.stringify);
