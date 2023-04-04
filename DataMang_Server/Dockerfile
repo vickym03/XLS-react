@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 #port number to run
-EXPOSE 5000
+EXPOSE 5001
 
 
 

@@ -26,7 +26,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.post("/save", (req, res) => {
-  // console.log("back req", req)
+  console.log("back req", req)
   console.log("back req.body", req.body)
   const user = req.body;
   const dbUser = new Schema({
